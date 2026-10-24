@@ -63,7 +63,7 @@ rockbita/
 | Ana Mendoza | Voz |
 | Eric Ramírez | Director musical · Bajo |
 | Luis Peláez | Guitarra |
-| Jairo A. Meza | Batería |
+| Jairo Meza | Batería |
 
 ## 📬 Contacto
 
