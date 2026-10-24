@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rockbita Rock Band · Cartagena</title>
+  <meta name="description" content="Rockbita: banda de rock cartagenera. Shows en vivo en inglés y español, tributos y serenatas para bodas, bares, hoteles y eventos.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Metal+Mania&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            neon: '#FFD60A',
+            amber: { rock: '#F5A524' },
+            blood: '#C1121F',
+            ink: '#0A0A0A',
+          },
+          fontFamily: {
+            metal: ['"Metal Mania"', 'cursive'],
+            display: ['"Bebas Neue"', 'sans-serif'],
+            body: ['Oswald', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    .neon-text {
+      color: #FFD60A;
+      text-shadow: 0 0 6px rgba(255, 214, 10, .8), 0 0 18px rgba(255, 214, 10, .55), 0 0 42px rgba(245, 165, 36, .45);
+    }
+    .neon-box { box-shadow: 0 0 0 1px rgba(255, 214, 10, .5), 0 0 24px rgba(255, 214, 10, .15); }
+    .grain::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .08;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .torn-top { clip-path: polygon(0 4%, 6% 0, 14% 3%, 22% 0, 31% 4%, 40% 1%, 49% 4%, 58% 0, 67% 3%, 76% 0, 85% 4%, 93% 1%, 100% 3%, 100% 100%, 0 100%); }
+    .flicker { animation: flicker 6s infinite; }
+    @keyframes flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+      20%, 24%, 55% { opacity: .55; }
+    }
+    @media (prefers-reduced-motion: reduce) { .flicker { animation: none; } }
+  </style>
+</head>
+<body class="overflow-x-hidden bg-ink text-zinc-200 font-body antialiased selection:bg-neon selection:text-ink">
+
+  <!-- NAV -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-ink/80 backdrop-blur border-b border-white/5">
+    <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="#inicio" class="font-metal text-2xl neon-text tracking-wide">Rockbita</a>
+      <ul class="hidden md:flex gap-8 font-display text-lg tracking-widest">
+        <li><a href="#banda" class="hover:text-neon transition">La Banda</a></li>
+        <li><a href="#repertorio" class="hover:text-neon transition">Repertorio</a></li>
+        <li><a href="#eventos" class="hover:text-neon transition">Eventos</a></li>
+        <li><a href="#galeria" class="hover:text-neon transition">Galería</a></li>
+        <li><a href="#contacto" class="hover:text-neon transition">Contacto</a></li>
+      </ul>
+      <a href="#contacto" class="font-display tracking-widest text-lg bg-neon text-ink px-4 py-1.5 hover:bg-amber-rock transition">Contrátanos</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden grain">
+    <img src="img/show-escenario.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30 scale-105">
+    <div class="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/70 to-ink"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,214,10,.12),transparent_60%)]"></div>
+
+    <div class="relative z-10 text-center px-4 pt-20">
+      <p class="font-display tracking-[0.4em] text-amber-rock text-sm md:text-base mb-4">Cartagena · Colombia · Desde 2019</p>
+      <h1 class="font-metal neon-text flicker text-7xl sm:text-8xl md:text-[10rem] leading-none">Rockbita</h1>
+      <p class="font-display tracking-[0.3em] text-zinc-300 text-xl md:text-2xl mt-2">Rock Band</p>
+      <p class="mt-8 max-w-2xl mx-auto text-xl md:text-2xl font-light italic text-zinc-100">
+        “Somos la descarga más letal de Rock y Buena Energía”
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contacto" class="font-display tracking-widest text-xl bg-neon text-ink px-8 py-3 hover:bg-amber-rock transition">Reserva tu show</a>
+        <a href="#repertorio" class="font-display tracking-widest text-xl border border-neon text-neon px-8 py-3 hover:bg-neon/10 transition">Ver repertorio</a>
+      </div>
+    </div>
+
+    <a href="#banda" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-neon animate-bounce" aria-label="Bajar">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+    </a>
+  </section>
+
+  <!-- STRIP -->
+  <div class="bg-neon text-ink overflow-hidden py-3 -rotate-1">
+    <p class="font-display text-lg sm:text-2xl tracking-widest text-center px-4">
+      ⚡ Rock en vivo ⚡ Inglés y Español ⚡ Clásicos de todos los tiempos ⚡ Tributos ⚡ Serenatas ⚡
+    </p>
+  </div>
+
+  <!-- LA BANDA -->
+  <section id="banda" class="py-24 px-4">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div class="relative">
+        <div class="absolute -inset-3 border-2 border-neon/60 translate-x-3 translate-y-3"></div>
+        <img src="img/poster.jpg" alt="Rockbita - Rock en vivo en Cartagena" class="relative w-full shadow-2xl">
+      </div>
+      <div>
+        <p class="font-display tracking-[0.3em] text-amber-rock">Quiénes somos</p>
+        <h2 class="font-display text-6xl md:text-7xl text-white leading-none mt-2">Rock cartagenero<br><span class="neon-text">con actitud</span></h2>
+        <p class="mt-6 text-lg text-zinc-300 font-light leading-relaxed">
+          Banda de rock cartagenera fundada en el año <strong class="text-neon font-semibold">2019</strong>. Ofrecemos show de rock en vivo en
+          <strong class="text-white font-semibold">inglés y español</strong> de manera profesional, con los clásicos más famosos de todos los tiempos y también algunos tributos.
+        </p>
+
+        <div class="mt-10 grid grid-cols-2 gap-4">
+          <div class="bg-zinc-900/70 border-l-4 border-neon p-4">
+            <p class="font-display text-2xl text-white">Ana Mendoza</p>
+            <p class="text-sm text-zinc-400 uppercase tracking-wider">Voz</p>
+          </div>
+          <div class="bg-zinc-900/70 border-l-4 border-neon p-4">
+            <p class="font-display text-2xl text-white">Eric Ramírez</p>
+            <p class="text-sm text-zinc-400 uppercase tracking-wider">Director musical · Bajo</p>
+          </div>
+          <div class="bg-zinc-900/70 border-l-4 border-neon p-4">
+            <p class="font-display text-2xl text-white">Luis Peláez</p>
+            <p class="text-sm text-zinc-400 uppercase tracking-wider">Guitarra</p>
+          </div>
+          <div class="bg-zinc-900/70 border-l-4 border-neon p-4">
+            <p class="font-display text-2xl text-white">Jairo A. Meza</p>
+            <p class="text-sm text-zinc-400 uppercase tracking-wider">Batería</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPERTORIO -->
+  <section id="repertorio" class="relative py-24 px-4 bg-zinc-950 torn-top">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="font-display tracking-[0.3em] text-amber-rock">Repertorio</p>
+        <h2 class="font-display text-6xl md:text-7xl text-white">Bandas <span class="neon-text">icónicas</span></h2>
+      </div>
+
+      <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+        <li class="group border border-white/10 hover:border-neon bg-ink p-5 text-center transition"><span class="font-display text-2xl tracking-wider group-hover:text-neon transition">Queen</span></li>
+        <li class="group border border-white/10 hover:border-neon bg-ink p-5 text-center transition"><span class="font-display text-2xl tracking-wider group-hover:text-neon transition">AC/DC</span></li>
+        <li class="group border border-white/10 hover:border-neon bg-ink p-5 text-center transition"><span class="font-display text-2xl tracking-wider group-hover:text-neon transition">Guns N' Roses</span></li>
+        <li class="group border border-white/10 hover:border-neon bg-ink p-5 text-center transition"><span class="font-display text-2xl tracking-wider group-hover:text-neon transition">Led Zeppelin</span></li>
+        <li class="group border border-white/10 hover:border-neon bg-ink p-5 text-center transition"><span class="font-display text-2xl tracking-wider group-hover:text-neon transition">Bon Jovi</span></li>
+        <li class="group border border-white/10 hover:border-neon bg-ink p-5 text-center transition"><span class="font-display text-2xl tracking-wider group-hover:text-neon transition">Enanitos Verdes</span></li>
+        <li class="group border border-white/10 hover:border-neon bg-ink p-5 text-center transition"><span class="font-display text-2xl tracking-wider group-hover:text-neon transition">Kraken</span></li>
+        <li class="group border border-white/10 hover:border-neon bg-ink p-5 text-center transition"><span class="font-display text-2xl tracking-wider group-hover:text-neon transition">Vilma Palma</span></li>
+        <li class="group border border-white/10 hover:border-neon bg-ink p-5 text-center transition"><span class="font-display text-2xl tracking-wider group-hover:text-neon transition">Maná</span></li>
+        <li class="group border border-white/10 hover:border-neon bg-ink p-5 text-center transition"><span class="font-display text-2xl tracking-wider group-hover:text-neon transition">Rock Femenino</span></li>
+      </ul>
+
+      <div class="mt-20 grid lg:grid-cols-2 gap-10">
+        <div>
+          <h3 class="font-display text-4xl text-white mb-6 flex items-center gap-3"><span class="text-neon">⚡</span> Tributos</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-4 bg-ink border border-white/10 p-4"><span class="font-display text-3xl text-neon/70 w-10">01</span><span class="text-lg">Tributo al Rock en Español</span></li>
+            <li class="flex items-center gap-4 bg-ink border border-white/10 p-4"><span class="font-display text-3xl text-neon/70 w-10">02</span><span class="text-lg">Tributo de Rock 80s y 90s</span></li>
+            <li class="flex items-center gap-4 bg-ink border border-white/10 p-4"><span class="font-display text-3xl text-neon/70 w-10">03</span><span class="text-lg">Tributo al Rock Mexicano</span></li>
+            <li class="flex items-center gap-4 bg-ink border border-white/10 p-4"><span class="font-display text-3xl text-neon/70 w-10">04</span><span class="text-lg">Tributo al Rock Alternativo y Éxitos de los 2000</span></li>
+            <li class="flex items-center gap-4 bg-ink border border-white/10 p-4"><span class="font-display text-3xl text-neon/70 w-10">05</span><span class="text-lg">Tributo al Rock Femenino</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-display text-4xl text-white mb-6 flex items-center gap-3"><span class="text-blood">♥</span> Serenatas Rock</h3>
+          <div class="grid gap-4">
+            <div class="relative overflow-hidden bg-gradient-to-br from-blood/30 to-ink border border-blood/40 p-6">
+              <p class="font-display text-3xl text-white">Serenata Rock para Mamá</p>
+              <p class="text-zinc-400 mt-1">Una sorpresa diferente, con la energía del rock.</p>
+            </div>
+            <div class="relative overflow-hidden bg-gradient-to-br from-blood/30 to-ink border border-blood/40 p-6">
+              <p class="font-display text-3xl text-white">Serenata Rock para Enamorados</p>
+              <p class="text-zinc-400 mt-1">Las baladas rock que nunca fallan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTOS -->
+  <section id="eventos" class="py-24 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="font-display tracking-[0.3em] text-amber-rock">Servicios</p>
+        <h2 class="font-display text-6xl md:text-7xl text-white">Amenizamos <span class="neon-text">todo tipo</span> de eventos</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div class="neon-box bg-zinc-900/60 p-6 text-center">
+          <div class="text-4xl mb-3">💍</div><p class="font-display text-2xl tracking-wider">Bodas</p>
+        </div>
+        <div class="neon-box bg-zinc-900/60 p-6 text-center">
+          <div class="text-4xl mb-3">🎂</div><p class="font-display text-2xl tracking-wider">Cumpleaños</p>
+        </div>
+        <div class="neon-box bg-zinc-900/60 p-6 text-center">
+          <div class="text-4xl mb-3">🎓</div><p class="font-display text-2xl tracking-wider">Grados</p>
+        </div>
+        <div class="neon-box bg-zinc-900/60 p-6 text-center">
+          <div class="text-4xl mb-3">🎤</div><p class="font-display text-2xl tracking-wider">Apertura y cierre de eventos</p>
+        </div>
+        <div class="neon-box bg-zinc-900/60 p-6 text-center">
+          <div class="text-4xl mb-3">🍸</div><p class="font-display text-2xl tracking-wider">Bares, hoteles, yates</p>
+        </div>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-5 gap-8 items-center bg-gradient-to-r from-neon/10 via-transparent to-transparent border border-neon/30 p-8 md:p-10">
+        <div class="md:col-span-3">
+          <h3 class="font-display text-4xl text-white">Llenamos tu <span class="neon-text">venue</span></h3>
+          <p class="mt-4 text-zinc-300 font-light text-lg leading-relaxed">
+            Ofrecemos un servicio de <strong class="text-white font-semibold">pautas publicitarias sectorizadas en redes sociales</strong>
+            para garantizar que el show tenga un buen aforo dentro de tu establecimiento, buscando el mutuo beneficio entre la banda y el evento.
+          </p>
+        </div>
+        <div class="md:col-span-2 grid grid-cols-2 gap-4 text-center">
+          <div><p class="font-display text-6xl neon-text">2019</p><p class="text-xs uppercase tracking-widest text-zinc-400">Desde</p></div>
+          <div><p class="font-display text-6xl neon-text">2</p><p class="text-xs uppercase tracking-widest text-zinc-400">Idiomas</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESCENARIOS -->
+  <section class="py-16 px-4 bg-zinc-950 border-y border-white/5">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="font-display tracking-[0.3em] text-amber-rock mb-8">Algunos escenarios donde hemos tocado en Cartagena</p>
+      <div class="flex flex-wrap justify-center gap-x-10 gap-y-4 font-display text-3xl md:text-4xl text-zinc-500">
+        <span class="hover:text-neon transition">Dogma</span>
+        <span class="text-neon/40">✦</span>
+        <span class="hover:text-neon transition">Hard Rock Cafe</span>
+        <span class="text-neon/40">✦</span>
+        <span class="hover:text-neon transition">Hotel Hilton Cartagena</span>
+        <span class="text-neon/40">✦</span>
+        <span class="hover:text-neon transition">Hotel Cartagena Plaza</span>
+        <span class="text-neon/40">✦</span>
+        <span class="hover:text-neon transition">Eventos privados · Región Caribe</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section id="galeria" class="py-24 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="font-display tracking-[0.3em] text-amber-rock">Galería</p>
+        <h2 class="font-display text-6xl md:text-7xl text-white">En <span class="neon-text">vivo</span></h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-3 md:h-[640px]">
+        <figure class="col-span-2 md:row-span-2 overflow-hidden group">
+          <img src="img/show-hardrock.jpg" alt="Rockbita en Hard Rock Cafe Cartagena" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        </figure>
+        <figure class="overflow-hidden group aspect-square md:aspect-auto">
+          <img src="img/banda.jpg" alt="Integrantes de Rockbita" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        </figure>
+        <figure class="overflow-hidden group aspect-square md:aspect-auto">
+          <img src="img/show-hotel.jpg" alt="Rockbita en evento de hotel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        </figure>
+        <figure class="col-span-2 overflow-hidden group aspect-video md:aspect-auto">
+          <img src="img/show-dogma.jpg" alt="Rockbita en Dogma Ensayadero Café" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="relative py-28 px-4 overflow-hidden grain">
+    <img src="img/logo-neon.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20">
+    <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <h2 class="font-metal neon-text text-6xl md:text-8xl">¡Que suene el rock!</h2>
+      <p class="mt-6 text-xl text-zinc-300 font-light">Lleva la descarga de Rockbita a tu evento. Escríbenos y armamos el show perfecto.</p>
+
+      <div class="mt-12 bg-zinc-900/80 border border-neon/40 neon-box p-8 text-left grid sm:grid-cols-2 gap-8">
+        <div>
+          <p class="text-xs uppercase tracking-widest text-zinc-500">Contacto</p>
+          <p class="font-display text-3xl text-white mt-1">Ana Mendoza Díaz</p>
+          <a href="tel:+573166514295" class="block mt-4 text-lg hover:text-neon transition">📞 316 651 4295</a>
+          <a href="mailto:dogmaensayaderocafe@gmail.com" class="block mt-2 text-lg hover:text-neon transition break-all">✉️ dogmaensayaderocafe@gmail.com</a>
+        </div>
+        <div class="flex flex-col gap-3 justify-center">
+          <a href="https://wa.me/573166514295?text=Hola%20Rockbita%2C%20quiero%20cotizar%20un%20show" target="_blank" rel="noopener"
+             class="font-display tracking-widest text-xl text-center bg-neon text-ink px-6 py-3 hover:bg-amber-rock transition">WhatsApp</a>
+          <a href="https://www.instagram.com/rockbitarockband" target="_blank" rel="noopener"
+             class="font-display tracking-widest text-xl text-center border border-neon text-neon px-6 py-3 hover:bg-neon/10 transition">Instagram</a>
+          <a href="https://www.facebook.com/rockbitarockband" target="_blank" rel="noopener"
+             class="font-display tracking-widest text-xl text-center border border-neon text-neon px-6 py-3 hover:bg-neon/10 transition">Facebook</a>
+          <p class="text-center text-zinc-400 text-sm mt-1">@Rockbitarockband</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/5 py-8 px-4 text-center text-sm text-zinc-500">
+    <p><span class="font-metal text-neon text-lg">Rockbita</span> Rock Band · Cartagena de Indias, Colombia</p>
+    <p class="mt-1">© <span id="year"></span> Todos los derechos reservados.</p>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
